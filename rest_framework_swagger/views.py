@@ -149,7 +149,6 @@ class SwaggerResourcesView(APIDocView):
         authorized_apis = filter(lambda a: self.handle_resource_access(self.request, a['pattern']), apis)
         authorized_apis_list = list(authorized_apis)
         resources = urlparser.get_top_level_apis(authorized_apis_list)
-        print resources
         return resources
 
 
@@ -178,4 +177,5 @@ class SwaggerApiView(APIDocView):
                                   exclude_namespaces=exclude_namespaces)
         authorized_apis = filter(lambda a: self.handle_resource_access(self.request, a['pattern']), apis)
         authorized_apis_list = list(authorized_apis)
+        print authorized_apis_list
         return authorized_apis_list
