@@ -83,7 +83,6 @@ class SwaggerUIView(View):
         response = render_to_response(
             template_name, RequestContext(request, data))
 
-        print response
         return response
 
     def has_permission(self, request):
@@ -115,6 +114,7 @@ class SwaggerResourcesView(APIDocView):
 
     def get(self, request, *args, **kwargs):
         apis = [{'path': '/' + path} for path in self.get_resources()]
+        print apis
         return Response({
             'apiVersion': rfs.SWAGGER_SETTINGS.get('api_version', ''),
             'swaggerVersion': '1.2',
