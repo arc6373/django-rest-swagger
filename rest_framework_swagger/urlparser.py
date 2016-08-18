@@ -54,7 +54,8 @@ class UrlParser(object):
 
         for api in apis:
             api['path'].replace("\{pk\}", SWAGGER_SETTINGS.get('primary_key'))
-
+            print api
+            
         return apis
 
     def get_filtered_apis(self, apis, filter_path):
