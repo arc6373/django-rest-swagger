@@ -56,7 +56,7 @@ class UrlParser(object):
             api['path'] = api['path'].replace('{pk}', '{scope}')
             api['pattern'] = api['pattern'].replace('pk', 'scope')
 
-        print apis
+        #print apis
         return apis
 
     def get_filtered_apis(self, apis, filter_path):
@@ -130,6 +130,7 @@ class UrlParser(object):
             if re.match('^/?%s(/.*)?$' % re.escape(filter_path), path) is None:
                 return None
 
+        print path
         path = path.replace('<', '{').replace('>', '}')
         path = self.__make_relative__(path)
 
