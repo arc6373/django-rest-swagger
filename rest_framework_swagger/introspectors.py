@@ -370,8 +370,8 @@ class BaseMethodIntrospector(object):
         params = []
 
         for param in url_params:
+            print param
             params.append({
-                print param
                 'name': param,
                 'type': 'string',
                 'paramType': 'path',
