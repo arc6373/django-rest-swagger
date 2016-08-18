@@ -54,8 +54,8 @@ class UrlParser(object):
 
         for api in apis:
             api['path'] = api['path'].replace('{pk}', '{scope}')
-            print api['path']
 
+        print apis
         return apis
 
     def get_filtered_apis(self, apis, filter_path):
