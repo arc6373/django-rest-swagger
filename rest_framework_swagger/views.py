@@ -114,7 +114,6 @@ class SwaggerResourcesView(APIDocView):
 
     def get(self, request, *args, **kwargs):
         apis = [{'path': '/' + path} for path in self.get_resources()]
-        print apis
         return Response({
             'apiVersion': rfs.SWAGGER_SETTINGS.get('api_version', ''),
             'swaggerVersion': '1.2',
@@ -150,6 +149,7 @@ class SwaggerResourcesView(APIDocView):
         authorized_apis = filter(lambda a: self.handle_resource_access(self.request, a['pattern']), apis)
         authorized_apis_list = list(authorized_apis)
         resources = urlparser.get_top_level_apis(authorized_apis_list)
+        print resources
         return resources
 
 
