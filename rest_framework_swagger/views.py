@@ -177,5 +177,7 @@ class SwaggerApiView(APIDocView):
                                   exclude_namespaces=exclude_namespaces)
         authorized_apis = filter(lambda a: self.handle_resource_access(self.request, a['pattern']), apis)
         authorized_apis_list = list(authorized_apis)
-        print authorized_apis_list
+        for api in authorized_apis_list:
+            api['path'] = api['path'].replace('{pk}', '{scope}')
+            
         return authorized_apis_list
