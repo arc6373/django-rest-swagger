@@ -130,7 +130,6 @@ class UrlParser(object):
             if re.match('^/?%s(/.*)?$' % re.escape(filter_path), path) is None:
                 return None
 
-        print path
         path = path.replace('<', '{').replace('>', '}')
         path = self.__make_relative__(path)
 
@@ -180,6 +179,7 @@ class UrlParser(object):
                     exclude_namespaces=exclude_namespaces,
                 ))
 
+        print pattern_list
         return pattern_list
 
     def __get_pattern_api_callback__(self, pattern):
