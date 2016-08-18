@@ -51,7 +51,10 @@ class UrlParser(object):
         if filter_path is not None:
             filter_path = self.__make_relative__(filter_path, strip=True)
             return self.get_filtered_apis(apis, filter_path)
-        print apis
+
+        for api in apis:
+            api['path'].replace("\{pk\}", SWAGGER_SETTINGS.get('primary_key'))
+
         return apis
 
     def get_filtered_apis(self, apis, filter_path):
