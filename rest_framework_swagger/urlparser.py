@@ -54,7 +54,6 @@ class UrlParser(object):
 
         for api in apis:
             api['path'] = api['path'].replace('{pk}', '{scope}')
-            api['pattern'] = api['pattern'].replace('pk', 'scope')
 
         #print apis
         return apis
@@ -179,7 +178,6 @@ class UrlParser(object):
                     exclude_namespaces=exclude_namespaces,
                 ))
 
-        print pattern_list
         return pattern_list
 
     def __get_pattern_api_callback__(self, pattern):
