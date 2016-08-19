@@ -179,5 +179,6 @@ class SwaggerApiView(APIDocView):
         authorized_apis_list = list(authorized_apis)
         for api in authorized_apis_list:
             api['path'] = api['path'].replace('{pk}', rfs.SWAGGER_SETTINGS.get('primary_key'))
+            print api
 
         return authorized_apis_list
