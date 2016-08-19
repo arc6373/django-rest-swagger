@@ -51,7 +51,7 @@ class DocumentationGenerator(object):
             operations = self.get_operations(api, apis)
             for operation in operations:
                 print operation['method']
-                if operation['method'] == 'post':
+                if operation['method'] == 'POST':
                     operations.remove(operation)
 
             api_docs.append({
