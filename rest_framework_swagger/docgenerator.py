@@ -47,7 +47,11 @@ class DocumentationGenerator(object):
         """
         api_docs = []
         for api in apis:
-            print self.get_operations(api, apis)
+
+            operations = self.get_operations(api, apis)
+            for parameters in operations[0].parameters
+                print parameters
+
             api_docs.append({
                 'description': IntrospectorHelper.get_summary(api['callback']),
                 'path': api['path'],
