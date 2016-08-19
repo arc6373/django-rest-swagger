@@ -51,9 +51,9 @@ class DocumentationGenerator(object):
             operations = self.get_operations(api, apis)
             for operation in operations:
                 if operation['method'] == 'post':
+                    print operation
                     operations.remove(operation)
 
-            print operations
             api_docs.append({
                 'description': IntrospectorHelper.get_summary(api['callback']),
                 'path': api['path'],
