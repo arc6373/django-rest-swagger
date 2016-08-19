@@ -46,12 +46,23 @@ class DocumentationGenerator(object):
         Returns documentation for a list of APIs
         """
         api_docs = []
+
         for api in apis:
-            api_docs.append({
-                'description': IntrospectorHelper.get_summary(api['callback']),
-                'path': api['path'],
-                'operations': self.get_operations(api, apis),
-            })
+            # Gets the disabled methods list
+            disabled = SWAGGER_SETTINGS.get('disabled_methods')
+            #Gets the operations that are available ie POST or GET
+            operations = self.get_operations(api, apis)
+            for operation in operations:
+                #If the method is in the disabled methods list it will remove it
+                if operation['method'] in disabled:
+                    operations.remove(operation)
+
+            if len(operations) > 0:
+                api_docs.append({
+                    'description': IntrospectorHelper.get_summary(api['callback']),
+                    'path': api['path'],
+                    'operations': operations,
+                })
 
         return api_docs
 
