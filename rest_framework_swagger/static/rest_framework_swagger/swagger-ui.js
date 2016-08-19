@@ -394,7 +394,7 @@ function program18(depth0,data) {
 function program20(depth0,data) {
 
 
-  return "\n          <div class='sandbox_header'>\n            <input class='submit' name='commit' type='button' value='Try it out!' />\n            <a href='#' class='response_hider' style='display:none'>Hide Response</a>\n         </div>\n          ";
+  return "\n          <div class='sandbox_header'>\n            <input class='submit' name='commit' type='button' value='Try it out!' />\n            <a href='#' class='response_hider' style='display:none'>Hide Response</a>\n            <img alt='Throbber' class='response_throbber' src='/static/rest_framework_swagger/images/throbber.gif' style='display:none' />\n          </div>\n          ";
   }
 
   buffer += "\n  <ul class='operations' >\n    <li class='";
@@ -1716,6 +1716,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
         }
         opts.responseContentType = $("div select[name=responseContentType]", $(this.el)).val();
         opts.requestContentType = $("div select[name=parameterContentType]", $(this.el)).val();
+        $(".response_throbber", $(this.el)).show();
         if (isFileUpload) {
           return this.handleFileUpload(map, form);
         } else {
@@ -1964,6 +1965,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
       $(".response_headers", $(this.el)).html("<pre>" + JSON.stringify(response.headers, null, "  ").replace(/\n/g, "<br>") + "</pre>");
       $(".response", $(this.el)).slideDown();
       $(".response_hider", $(this.el)).show();
+      $(".response_throbber", $(this.el)).hide();
       return hljs.highlightBlock($('.response_body', $(this.el))[0]);
     };
 
