@@ -149,8 +149,7 @@ class SwaggerResourcesView(APIDocView):
         authorized_apis = filter(lambda a: self.handle_resource_access(self.request, a['pattern']), apis)
         authorized_apis_list = list(authorized_apis)
         resources = urlparser.get_top_level_apis(authorized_apis_list)
-        print resources
-        return resources
+        return []
 
 
 class SwaggerApiView(APIDocView):
