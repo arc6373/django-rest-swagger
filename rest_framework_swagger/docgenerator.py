@@ -52,11 +52,8 @@ class DocumentationGenerator(object):
             disabled = SWAGGER_SETTINGS.get('disabled_methods')
             #Gets the operations that are available ie POST or GET
             operations = self.get_operations(api, apis)
-            print operations
-            for i in range(0, len(operations)-1):
-                operation = operations[i]
+            for operation in operations:
                 #If the method is in the disabled methods list it will remove it
-                print operation['method']
                 if operation['method'] in disabled:
                     operations.remove(operation)
 
