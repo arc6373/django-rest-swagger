@@ -178,6 +178,7 @@ class SwaggerApiView(APIDocView):
         authorized_apis = filter(lambda a: self.handle_resource_access(self.request, a['pattern']), apis)
         authorized_apis_list = list(authorized_apis)
         for api in authorized_apis_list:
+            print api
             api['path'] = api['path'].replace('{pk}', rfs.SWAGGER_SETTINGS.get('primary_key'))
 
         return authorized_apis_list
