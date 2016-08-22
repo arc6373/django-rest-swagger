@@ -158,6 +158,7 @@ class SwaggerApiView(APIDocView):
     def get(self, request, path, *args, **kwargs):
         apis = self.get_apis_for_resource(path)
         generator = DocumentationGenerator(for_user=request.user)
+        print generator.generate(apis)
         return Response({
             'apiVersion': rfs.SWAGGER_SETTINGS.get('api_version', ''),
             'swaggerVersion': '1.2',
@@ -178,7 +179,6 @@ class SwaggerApiView(APIDocView):
         authorized_apis = filter(lambda a: self.handle_resource_access(self.request, a['pattern']), apis)
         authorized_apis_list = list(authorized_apis)
         for api in authorized_apis_list:
-            print api
             api['path'] = api['path'].replace('{pk}', rfs.SWAGGER_SETTINGS.get('primary_key'))
 
         return authorized_apis_list
