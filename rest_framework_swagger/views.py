@@ -158,8 +158,8 @@ class SwaggerApiView(APIDocView):
     def get(self, request, path, *args, **kwargs):
         apis = self.get_apis_for_resource(path)
         generator = DocumentationGenerator(for_user=request.user)
-        print generator.generate(apis)
-        if generator.generate(apis) != []:
+        if not generator.generate(apis):
+            print "response"
             return Response({
                 'apiVersion': rfs.SWAGGER_SETTINGS.get('api_version', ''),
                 'swaggerVersion': '1.2',
