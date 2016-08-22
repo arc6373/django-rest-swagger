@@ -52,14 +52,12 @@ class DocumentationGenerator(object):
             disabled = SWAGGER_SETTINGS.get('disabled_methods')
             #Gets the operations that are available ie POST or GET
             operations = self.get_operations(api, apis)
-            print disabled
             for operation in operations:
                 #If the method is in the disabled methods list it will remove it
-                print operation['method']
                 if operation['method'] in disabled:
-                    print "removed"
                     operations.remove(operation)
 
+            print operations
             api_docs.append({
                 'description': IntrospectorHelper.get_summary(api['callback']),
                 'path': api['path'],
