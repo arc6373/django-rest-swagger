@@ -55,6 +55,7 @@ class DocumentationGenerator(object):
             print operations
             for operation in operations:
                 #If the method is in the disabled methods list it will remove it
+                print operation['method']
                 if operation['method'] in disabled:
                     operations.remove(operation)
 
