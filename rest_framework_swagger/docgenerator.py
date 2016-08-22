@@ -57,6 +57,7 @@ class DocumentationGenerator(object):
                 if operation['method'] in disabled:
                     operations.remove(operation)
 
+            print len(operations)
             api_docs.append({
                 'description': IntrospectorHelper.get_summary(api['callback']),
                 'path': api['path'],
