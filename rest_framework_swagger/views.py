@@ -149,6 +149,8 @@ class SwaggerResourcesView(APIDocView):
         authorized_apis = filter(lambda a: self.handle_resource_access(self.request, a['pattern']), apis)
         authorized_apis_list = list(authorized_apis)
         resources = urlparser.get_top_level_apis(authorized_apis_list)
+        #location to test for methods maybe
+        print "10001 ".join(resources)
         return resources
 
 
