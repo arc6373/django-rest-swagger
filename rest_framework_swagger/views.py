@@ -158,18 +158,18 @@ class SwaggerApiView(APIDocView):
     def get(self, request, path, *args, **kwargs):
         apis = self.get_apis_for_resource(path)
         generator = DocumentationGenerator(for_user=request.user)
-        if not generator.generate(apis):
-            print "response"
-            return Response({
-                'apiVersion': rfs.SWAGGER_SETTINGS.get('api_version', ''),
-                'swaggerVersion': '1.2',
-                'basePath': self.api_full_uri.rstrip('/'),
-                'resourcePath': '/' + path,
-                'apis': generator.generate(apis),
-                'models': generator.get_models(apis),
-            })
-        else:
-            return Response();
+        # if not generator.generate(apis):
+        #     print "response"
+        #     return Response({
+        #         'apiVersion': rfs.SWAGGER_SETTINGS.get('api_version', ''),
+        #         'swaggerVersion': '1.2',
+        #         'basePath': self.api_full_uri.rstrip('/'),
+        #         'resourcePath': '/' + path,
+        #         'apis': generator.generate(apis),
+        #         'models': generator.get_models(apis),
+        #     })
+        # else:
+        return Response();
 
     def get_apis_for_resource(self, filter_path):
         urlparser = UrlParser()
