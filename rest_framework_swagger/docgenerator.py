@@ -62,6 +62,7 @@ class DocumentationGenerator(object):
                     goodOperations.append(operation)
 
             if len(goodOperations) != 0:
+                print "api_docs"
                 api_docs.append({
                     'description': IntrospectorHelper.get_summary(api['callback']),
                     'path': api['path'],
