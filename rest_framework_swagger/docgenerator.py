@@ -53,7 +53,8 @@ class DocumentationGenerator(object):
             #Gets the operations that are available ie POST or GET
             operations = self.get_operations(api, apis)
             print operations
-            for operation in operations:
+            for i in range(0, len(operations):
+                operation = operations[i]
                 #If the method is in the disabled methods list it will remove it
                 print operation['method']
                 if operation['method'] in disabled:
