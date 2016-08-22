@@ -57,6 +57,7 @@ class DocumentationGenerator(object):
                 #If the method is in the disabled methods list it will remove it
                 print operation['method']
                 if operation['method'] in disabled:
+                    print "removed"
                     operations.remove(operation)
 
             api_docs.append({
