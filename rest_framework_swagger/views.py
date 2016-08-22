@@ -150,7 +150,6 @@ class SwaggerResourcesView(APIDocView):
         authorized_apis_list = list(authorized_apis)
         resources = urlparser.get_top_level_apis(authorized_apis_list)
         #location to test for methods maybe
-        print SwaggerApiView.get_apis_for_resource(resources[0])
         return resources
 
 
