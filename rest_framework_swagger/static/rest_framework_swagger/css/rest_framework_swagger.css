@@ -3,7 +3,7 @@
     color: #eee; 
     text-align:right; 
     padding: 7px 0; 
-    font-size: 0.8em
+    font-size: 100%;
 }
 #django-rest-swagger a {
     color: #fff;
