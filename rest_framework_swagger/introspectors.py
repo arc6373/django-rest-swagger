@@ -172,7 +172,7 @@ class BaseMethodIntrospector(object):
         'number': ['float', 'double'],
         'string': ['string', 'byte', 'date', 'date-time'],
         'boolean': ['boolean'],
-        'json': ['JSON Object'],
+        'json': ['json'],
         'array': ['array']
     }
 
@@ -1126,6 +1126,9 @@ class YAMLDocstringParser(object):
 
             if field.get('defaultValue', None) is not None:
                 f['defaultValue'] = field.get('defaultValue', None) 
+
+            if field.get('type') == 'json':
+                f['type'] = 'JSON Object'
 
             # Allow Multiple Values &f=1,2,3,4
             if field.get('allowMultiple'):
