@@ -1159,7 +1159,6 @@ class YAMLDocstringParser(object):
 
             params.append(f)
 
-        import pdb; pdb.set_trace();
         print params
         return params
 
