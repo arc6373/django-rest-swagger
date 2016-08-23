@@ -1013,7 +1013,7 @@
   list-style-type: disc;
 }
 .swagger-ui-wrap form.form_box {
-  background-color: #ebf3f9;
+  background-color: #ebf3f9 !important;
   border: 1px solid #c3d9ec;
   padding: 10px;
 }
