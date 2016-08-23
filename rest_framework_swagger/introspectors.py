@@ -1086,6 +1086,7 @@ class YAMLDocstringParser(object):
         """
         Retrieves parameters from YAML object
         """
+        import pdb; pdb.set_trace();
         params = []
         fields = self.object.get('parameters', [])
         for field in fields:
