@@ -1129,6 +1129,9 @@ class YAMLDocstringParser(object):
             if field.get('allowMultiple'):
                 f['allowMultiple'] = True
 
+            if field.get('type') == 'json':
+                f['type'] = 'JSON Object'
+
             if f['type'] == 'array':
                 items = field.get('items', {})
                 elt_data_type = items.get('type', 'string')
@@ -1159,7 +1162,6 @@ class YAMLDocstringParser(object):
 
             params.append(f)
 
-        print params
         return params
 
     def discover_parameters(self, inspector):
