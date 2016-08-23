@@ -327,6 +327,7 @@
 }
 .swagger-ui-wrap table.fullwidth {
   width: 100%;
+  background-color: #ebf3f9 !important;
 }
 .swagger-ui-wrap .model-signature {
   font-family: "Droid Sans", sans-serif;
@@ -1013,12 +1014,12 @@
   list-style-type: disc;
 }
 .swagger-ui-wrap form.form_box {
-  background-color: #ebf3f9 !important;
+  background-color: #ebf3f9;
   border: 1px solid #c3d9ec;
   padding: 10px;
 }
 .swagger-ui-wrap form.form_box label {
-  color: #0f6ab4 !important;
+  color: #0f6ab4;
 }
 .swagger-ui-wrap form.form_box input[type=submit] {
   display: block;
