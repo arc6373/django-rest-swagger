@@ -172,6 +172,8 @@ class BaseMethodIntrospector(object):
         'number': ['float', 'double'],
         'string': ['string', 'byte', 'date', 'date-time'],
         'boolean': ['boolean'],
+        'JSON Object': ['json'],
+        'array': ['array']
     }
 
     def __init__(self, view_introspector, method):
@@ -1123,14 +1125,11 @@ class YAMLDocstringParser(object):
             normalize_data_format(data_type, data_format, f)
 
             if field.get('defaultValue', None) is not None:
-                f['defaultValue'] = field.get('defaultValue', None)
+                f['defaultValue'] = field.get('defaultValue', None) 
 
             # Allow Multiple Values &f=1,2,3,4
             if field.get('allowMultiple'):
                 f['allowMultiple'] = True
-
-            if field.get('type') == 'json':
-                f['type'] = 'JSON Object'
 
             if f['type'] == 'array':
                 items = field.get('items', {})
