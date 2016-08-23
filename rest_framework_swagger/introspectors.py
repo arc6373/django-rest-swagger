@@ -1086,7 +1086,6 @@ class YAMLDocstringParser(object):
         """
         Retrieves parameters from YAML object
         """
-        import pdb; pdb.set_trace();
         params = []
         fields = self.object.get('parameters', [])
         for field in fields:
@@ -1160,6 +1159,7 @@ class YAMLDocstringParser(object):
 
             params.append(f)
 
+        import pdb; pdb.set_trace();
         return params
 
     def discover_parameters(self, inspector):
