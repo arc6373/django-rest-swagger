@@ -172,7 +172,7 @@ class BaseMethodIntrospector(object):
         'number': ['float', 'double'],
         'string': ['string', 'byte', 'date', 'date-time'],
         'boolean': ['boolean'],
-        'json': ['json'],
+        'json': ['JSON Object'],
         'array': ['array']
     }
 
