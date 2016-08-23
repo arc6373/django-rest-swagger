@@ -1120,6 +1120,7 @@ class YAMLDocstringParser(object):
                 'name': field.get('name', None),
                 'description': field.get('description', ''),
                 'required': field.get('required', False),
+                'example': field.get('example', ''),
             }
 
             normalize_data_format(data_type, data_format, f)
