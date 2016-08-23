@@ -1131,7 +1131,7 @@ class YAMLDocstringParser(object):
 
             if f['type'] == 'array':
                 items = field.get('items', {})
-                elt_data_type = items.get('type', 'string')
+                elt_data_type = items.get('type', 'array')
                 elt_data_format = items.get('type', 'format')
                 f['items'] = {
                 }
