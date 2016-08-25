@@ -51,7 +51,7 @@ def get_full_base_path(request):
         protocol = 'https' if request.is_secure() else 'http'
         return '{0}://{1}'.format(protocol, base_path.rstrip('/'))
 
-
+#Gets the initial template while the rest loads
 class SwaggerUIView(View):
     def get(self, request, *args, **kwargs):
 
@@ -108,7 +108,7 @@ class SwaggerUIView(View):
         else:
             raise PermissionDenied()
 
-
+#Gets the main routes and information?
 class SwaggerResourcesView(APIDocView):
     renderer_classes = (JSONRenderer, )
 
@@ -149,16 +149,22 @@ class SwaggerResourcesView(APIDocView):
         authorized_apis = filter(lambda a: self.handle_resource_access(self.request, a['pattern']), apis)
         authorized_apis_list = list(authorized_apis)
         resources = urlparser.get_top_level_apis(authorized_apis_list)
-        #location to test for methods maybe
+        #location to test for methods to get rid of empty methods
         return resources
 
 
+#Gets the routes and information about them?
 class SwaggerApiView(APIDocView):
     renderer_classes = (JSONRenderer, )
 
     def get(self, request, path, *args, **kwargs):
         apis = self.get_apis_for_resource(path)
         generator = DocumentationGenerator(for_user=request.user)
+        print "100000001"
+        print "api: " + generator.generate(apis)
+        print "models: " + generator.get_models(apis)
+        print "path: /" + path
+        print "100000002"
         return Response({
             'apiVersion': rfs.SWAGGER_SETTINGS.get('api_version', ''),
             'swaggerVersion': '1.2',
@@ -166,6 +172,7 @@ class SwaggerApiView(APIDocView):
             'resourcePath': '/' + path,
             'apis': generator.generate(apis),
             'models': generator.get_models(apis),
+            #Possibly generate a file on load here to export? Generate to static file to HTML link and download
         })
 
 
