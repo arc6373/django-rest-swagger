@@ -82,6 +82,7 @@ class UrlParser(object):
 
         top_level_apis = self.__filter_top_level_apis__(root_paths)
 
+        print top_level_apis
         return sorted(top_level_apis, key=self.__get_last_element__)
 
     def __filter_top_level_apis__(self, root_paths):
