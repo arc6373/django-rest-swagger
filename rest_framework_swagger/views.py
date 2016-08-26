@@ -161,9 +161,9 @@ class SwaggerApiView(APIDocView):
         apis = self.get_apis_for_resource(path)
         generator = DocumentationGenerator(for_user=request.user)
         print "100000001"
-        print "api: " + generator.generate(apis)
-        print "models: " + generator.get_models(apis)
-        print "path: /" + path
+        print generator.generate(apis)
+        print generator.get_models(apis)
+        print path
         print "100000002"
         return Response({
             'apiVersion': rfs.SWAGGER_SETTINGS.get('api_version', ''),
