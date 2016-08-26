@@ -43,8 +43,6 @@ class UrlParser(object):
             urls = import_module(settings.ROOT_URLCONF)
             patterns = urls.urlpatterns
 
-
-        print patterns
         apis = self.__flatten_patterns_tree__(
             patterns,
             filter_path=filter_path,
