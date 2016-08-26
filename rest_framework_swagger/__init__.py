@@ -17,6 +17,7 @@ DEFAULT_SWAGGER_SETTINGS = {
     'template_path': 'rest_framework_swagger/index.html',
     'doc_expansion': 'none',
     'disabled_methods': [],
+    'top_level_only': [],
 }
 
 try:

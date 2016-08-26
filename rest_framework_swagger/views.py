@@ -182,5 +182,11 @@ class SwaggerApiView(APIDocView):
         authorized_apis = filter(lambda a: self.handle_resource_access(self.request, a['pattern']), apis)
         authorized_apis_list = list(authorized_apis)
 
-        print authorized_apis_list
+        top_level_only = rfs.SWAGGER_SETTINGS.get('top_level_only')
+        split_url = authorized_apis_list[0]['path'].split('/')
+        print split_url
+        # for piece in split_url:
+        #     if piece in top_level_only:
+        #         return authorized_apis_list[0]
+
         return authorized_apis_list
