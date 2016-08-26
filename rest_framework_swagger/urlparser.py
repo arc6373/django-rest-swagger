@@ -32,6 +32,7 @@ class UrlParser(object):
         exclude_namespaces = exclude_namespaces or []
         filter_path = self.__make_absolute__(filter_path)
 
+
         if patterns is None and urlconf is not None:
             if isinstance(urlconf, six.string_types):
                 urls = import_module(urlconf)
@@ -42,6 +43,8 @@ class UrlParser(object):
             urls = import_module(settings.ROOT_URLCONF)
             patterns = urls.urlpatterns
 
+
+        print patterns
         apis = self.__flatten_patterns_tree__(
             patterns,
             filter_path=filter_path,
@@ -52,7 +55,6 @@ class UrlParser(object):
             filter_path = self.__make_relative__(filter_path, strip=True)
             return self.get_filtered_apis(apis, filter_path)
 
-        print apis
         return apis
 
     def get_filtered_apis(self, apis, filter_path):
