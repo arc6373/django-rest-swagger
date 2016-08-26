@@ -182,4 +182,5 @@ class SwaggerApiView(APIDocView):
         authorized_apis = filter(lambda a: self.handle_resource_access(self.request, a['pattern']), apis)
         authorized_apis_list = list(authorized_apis)
 
+        print authorized_apis_list
         return authorized_apis_list
