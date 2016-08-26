@@ -188,4 +188,7 @@ class SwaggerApiView(APIDocView):
             if piece in top_level_only:
                 return [authorized_apis_list[0]]
 
+        for api in authorized_apis_list:
+            api['path'] = api['path'].replace('{pk}', rfs.SWAGGER_SETTINGS.get('primary_key'))
+
         return authorized_apis_list

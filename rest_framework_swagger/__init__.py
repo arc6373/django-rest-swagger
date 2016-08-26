@@ -18,6 +18,7 @@ DEFAULT_SWAGGER_SETTINGS = {
     'doc_expansion': 'none',
     'disabled_methods': [],
     'top_level_only': [],
+    'primary_key': '{pk}',
 }
 
 try:
