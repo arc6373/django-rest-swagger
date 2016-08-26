@@ -186,6 +186,7 @@ class SwaggerApiView(APIDocView):
         split_url = authorized_apis_list[0]['path'].split('/')
         for piece in split_url:
             if piece in top_level_only:
-                return authorized_apis_list[0]
+                print authorized_apis_list[0]
+                # return authorized_apis_list[0]
 
         return authorized_apis_list
