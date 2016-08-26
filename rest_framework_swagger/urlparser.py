@@ -54,7 +54,7 @@ class UrlParser(object):
             return self.get_filtered_apis(apis, filter_path)
 
         return apis
-
+        
     def get_filtered_apis(self, apis, filter_path):
         filtered_list = []
 
